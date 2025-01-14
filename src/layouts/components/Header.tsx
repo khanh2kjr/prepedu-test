@@ -1,7 +1,7 @@
 import { Box, Theme } from '@mui/material'
 import { makeStyles } from '@mui/styles'
-import MenuIcon from '../../components/icons/MenuIcon'
-import CompanyIcon from '../../components/icons/CompanyIcon'
+import MenuIcon from '@/components/icons/MenuIcon'
+import CompanyIcon from '@/components/icons/CompanyIcon'
 import logoPersonLogin from '@/ui/images/logo-person-login.webp'
 
 const Header = () => {

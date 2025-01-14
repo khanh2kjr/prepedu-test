@@ -1,6 +1,6 @@
 import { Box, Theme } from '@mui/material'
 import { makeStyles } from '@mui/styles'
-import MainLayout from './layouts/MainLayout'
+import MainLayout from '@/layouts/MainLayout'
 
 const App = () => {
   const classes = useStyles()
