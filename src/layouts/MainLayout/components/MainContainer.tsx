@@ -1,3 +1,4 @@
+import EducationPath from '@/features/EducationalPath'
 import { Box, Theme } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 
@@ -6,7 +7,10 @@ const MainContainer = () => {
 
   return (
     <Box className={classes.RootMainContainer}>
-      <Box className={classes.containerCenter}>1</Box>
+      <Box className={classes.containerCenter}>
+        <EducationPath />
+        {/* Other Features */}
+      </Box>
     </Box>
   )
 }
