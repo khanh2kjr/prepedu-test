@@ -19,6 +19,7 @@ export interface SessionItem {
   overall_index: number
   proficiency: number
   total_proficiency: number
+  day_of_week?: number
   unit_ids: number[]
 }
 

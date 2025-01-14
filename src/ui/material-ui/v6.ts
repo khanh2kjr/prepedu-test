@@ -18,8 +18,10 @@ export const themeColors = {
       secondary: '#FFFBEB',
     },
     gray: {
-      primary: '#9CA3AF',
+      primary: '#6B7280',
       secondary: '#F9FAFB',
+      tertiary: '#E5E7EB',
+      fourth: '#EBEDF4',
     },
     black: {
       primary: '#23242D',

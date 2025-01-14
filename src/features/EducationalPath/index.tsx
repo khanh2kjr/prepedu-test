@@ -4,6 +4,7 @@ import { EducationalPathDataObject } from '@/models'
 import { Box, Theme } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import { useState } from 'react'
+import LessionOverviewMonthly from './components/LessonOverviewMonthly'
 
 const EducationPath = () => {
   const classes = useStyles()
@@ -15,7 +16,7 @@ const EducationPath = () => {
   return (
     <CommonScreenLayout title={`Chặng ${data.level_name}`}>
       <Box className={classes.RootEducationPath}>
-        <Box>Left</Box>
+        <LessionOverviewMonthly units={data.units} sessions={data.sessions} />
         <Box>Right</Box>
       </Box>
     </CommonScreenLayout>
