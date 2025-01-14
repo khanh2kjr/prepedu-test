@@ -6,7 +6,8 @@ export const themeColors = {
     blue: {
       primary: '#0071F9',
       secondary: '#007FF4',
-      tertiary: '#EBF5FF',
+      tertiary: '#2792F6',
+      fourth: '#EBF5FF',
     },
     green: {
       primary: '#00B135',

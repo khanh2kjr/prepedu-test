@@ -1,10 +1,16 @@
-import { Theme } from '@mui/material'
+import { Box, Theme } from '@mui/material'
 import { makeStyles } from '@mui/styles'
+import MainLayout from './layouts/MainLayout'
 
 const App = () => {
   const classes = useStyles()
 
-  return <div className={classes.RootApp}>App</div>
+  return (
+    <Box className={classes.RootApp}>
+      <MainLayout />
+      {/* other layouts */}
+    </Box>
+  )
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
