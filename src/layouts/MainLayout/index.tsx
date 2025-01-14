@@ -1,13 +1,15 @@
 import { Box } from '@mui/material'
 import { makeStyles } from '@mui/styles'
-import Header from './components/Header'
+import MainHeader from './components/MainHeader'
+import MainContainer from './components/MainContainer'
 
 const MainLayout = () => {
   const classes = useStyles()
 
   return (
     <Box className={classes.RootMainLayout}>
-      <Header />
+      <MainHeader />
+      <MainContainer />
     </Box>
   )
 }

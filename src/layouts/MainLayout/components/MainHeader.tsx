@@ -4,11 +4,11 @@ import MenuIcon from '@/components/icons/MenuIcon'
 import CompanyIcon from '@/components/icons/CompanyIcon'
 import logoPersonLogin from '@/ui/images/logo-person-login.webp'
 
-const Header = () => {
+const MainHeader = () => {
   const classes = useStyles()
 
   return (
-    <Box className={classes.RootHeader}>
+    <Box className={classes.RootMainHeader}>
       <Box className={classes.headerContainer}>
         <Box className={classes.boxMenuAndLogo}>
           <MenuIcon />
@@ -23,9 +23,9 @@ const Header = () => {
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
-  RootHeader: {
+  RootMainHeader: {
     backgroundColor: theme.color.blue.secondary,
-    borderBottom: `1px solid ${theme.color.blue.fourth}`,
+    borderBottom: `1px solid rgba(255, 255, 255, 0.15)`,
   },
   headerContainer: {
     maxWidth: 1440,
@@ -52,4 +52,4 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }))
 
-export default Header
+export default MainHeader
