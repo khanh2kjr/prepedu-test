@@ -9,13 +9,8 @@ interface CommonCupProps {
   className?: string
 }
 
-const CommonCup = ({
-  totalCups,
-  numberOfCupsWon,
-  className,
-}: CommonCupProps) => {
+const CommonCup = ({ totalCups, numberOfCupsWon, className }: CommonCupProps) => {
   const classes = useStyles()
-
   return (
     <Box className={clsx(classes.RootCommonCup, className && className)}>
       <CupIcon />

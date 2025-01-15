@@ -1,15 +1,15 @@
-import dataMockup from '@/_mocks/data.json'
 import CommonCup from '@/components/common/CommonCup'
 import CommonStatusItem from '@/components/common/CommonStatusItem'
 import ArrowHitTheTargetIcon from '@/components/icons/ArrowHitTheTargeIcon'
 import TaskDoneIcon from '@/components/icons/TaskDoneIcon'
 import WarningIcon from '@/components/icons/WarningIcon'
-import { SessionItem, StatusItemColor } from '@/models'
+import { EducationalPathDataObject, SessionItem, StatusItemColor } from '@/models'
 import { themeColors } from '@/ui/material-ui/v6'
 import { formatDateToVietnamese } from '@/utils'
 import { Box, Theme } from '@mui/material'
 import { makeStyles } from '@mui/styles'
-import { ReactElement, useMemo } from 'react'
+import { ReactElement, useContext, useMemo } from 'react'
+import { EducationalPathContext, EducationalPathContextType } from '../educationalPathContext'
 import UnitTaskList from './UnitTaskList'
 
 interface LessonItemProps {
@@ -35,42 +35,28 @@ const isLessonToday = (lessonDate: Date) => {
 
 const LessonItem = ({ lessonItem }: LessonItemProps) => {
   const classes = useStyles()
+  const educationalPathContext: EducationalPathContextType | undefined = useContext(EducationalPathContext)
+  const data = educationalPathContext?.data as EducationalPathDataObject
 
   const objectDates = useMemo(() => {
     const today = new Date()
     const lessonDateObject = new Date(lessonItem.date || '')
-    return {
-      today,
-      lessonDateObject,
-    }
+    return { today, lessonDateObject }
   }, [lessonItem])
 
   const unitTaskList = useMemo(() => {
-    return dataMockup.data.units.filter(unit =>
-      lessonItem.unit_ids.includes(unit.unit_id)
-    )
+    return data.units.filter(unit => lessonItem.unit_ids.includes(unit.unit_id))
   }, [lessonItem.unit_ids])
 
   const messageStatus = useMemo(() => {
     const { today, lessonDateObject } = objectDates
-
-    if (
-      lessonItem.completed &&
-      !lessonItem.date &&
-      !lessonItem.completion_date
-    ) {
+    if (lessonItem.completed && !lessonItem.date && !lessonItem.completion_date) {
       return 'Đã hoàn thành trước khi khởi tạo Study Plan'
     }
     if (lessonItem.completion_date && lessonItem.completed) {
-      return `Đã hoàn thành ${formatDateToVietnamese(
-        lessonItem.completion_date
-      )}`
+      return `Đã hoàn thành ${formatDateToVietnamese(lessonItem.completion_date)}`
     }
-    if (
-      !lessonItem.completed &&
-      today.getTime() - lessonDateObject.getTime() > 0 &&
-      !isLessonToday(lessonDateObject)
-    ) {
+    if (!lessonItem.completed && today.getTime() - lessonDateObject.getTime() > 0 && !isLessonToday(lessonDateObject)) {
       return 'Bạn chưa hoàn thành buổi học này'
     }
     return ''
@@ -94,10 +80,7 @@ const LessonItem = ({ lessonItem }: LessonItemProps) => {
         icon: <ArrowHitTheTargetIcon />,
       } as LessonStyles
     }
-    if (
-      !lessonItem.completed &&
-      today.getTime() - lessonDateObject.getTime() > 0
-    ) {
+    if (!lessonItem.completed && today.getTime() - lessonDateObject.getTime() > 0) {
       return {
         statusColorType: 'orange',
         backgroundColor: themeColors.color.orange.secondary,
@@ -118,9 +101,7 @@ const LessonItem = ({ lessonItem }: LessonItemProps) => {
       className={classes.RootLessonItem}
       sx={{
         backgroundColor: lessonStyles.backgroundColor,
-        border: isLessonToday(objectDates.lessonDateObject)
-          ? `2px solid ${lessonStyles.unitTaskColor}`
-          : 'none',
+        border: isLessonToday(objectDates.lessonDateObject) ? `2px solid ${lessonStyles.unitTaskColor}` : 'none',
       }}
     >
       <Box className={classes.header}>
@@ -130,27 +111,12 @@ const LessonItem = ({ lessonItem }: LessonItemProps) => {
             endIcon={lessonStyles.icon}
             color={lessonStyles.statusColorType}
           />
-          {!!lessonItem.date && (
-            <Box className={classes.date}>
-              {formatDateToVietnamese(lessonItem.date)}
-            </Box>
-          )}
+          {!!lessonItem.date && <Box className={classes.date}>{formatDateToVietnamese(lessonItem.date)}</Box>}
         </Box>
-        <CommonCup
-          totalCups={lessonItem.total_proficiency}
-          numberOfCupsWon={lessonItem.proficiency}
-        />
+        <CommonCup totalCups={lessonItem.total_proficiency} numberOfCupsWon={lessonItem.proficiency} />
       </Box>
-      <UnitTaskList
-        unitTaskList={unitTaskList}
-        unitTaskColor={lessonStyles.unitTaskColor}
-      />
-      <Box
-        className={classes.messageStatus}
-        sx={{
-          color: themeColors.color[lessonStyles.statusColorType].primary,
-        }}
-      >
+      <UnitTaskList unitTaskList={unitTaskList} unitTaskColor={lessonStyles.unitTaskColor} />
+      <Box className={classes.messageStatus} sx={{ color: themeColors.color[lessonStyles.statusColorType].primary }}>
         {messageStatus}
       </Box>
     </Box>

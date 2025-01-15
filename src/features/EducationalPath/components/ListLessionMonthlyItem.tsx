@@ -8,10 +8,7 @@ interface ListLessonMonthlyItemProps {
   listOfLessons: SessionItem[]
 }
 
-const ListLessonMonthlyItem = ({
-  yearMonthString,
-  listOfLessons,
-}: ListLessonMonthlyItemProps) => {
+const ListLessonMonthlyItem = ({ yearMonthString, listOfLessons }: ListLessonMonthlyItemProps) => {
   const classes = useStyles()
 
   const formatDateTitle = (yearMonthString: string) => {
@@ -23,9 +20,7 @@ const ListLessonMonthlyItem = ({
     <Box className={classes.RootListLessonMonthlyItem}>
       <Box className={classes.boxTitle}>
         <Box className={classes.line} />
-        <Box className={classes.dateTitle}>
-          {formatDateTitle(yearMonthString)}
-        </Box>
+        <Box className={classes.dateTitle}>{formatDateTitle(yearMonthString)}</Box>
         <Box className={classes.line} />
       </Box>
       <Box className={classes.listOfLessons}>

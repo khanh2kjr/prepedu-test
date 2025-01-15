@@ -1,23 +1,23 @@
-import dataMockup from '@/_mocks/data.json'
 import CommonCup from '@/components/common/CommonCup'
 import { EducationalPathDataObject } from '@/models'
 import { themeColors } from '@/ui/material-ui/v6'
 import { Box, Theme } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import clsx from 'clsx'
-import { useMemo, useState } from 'react'
+import { useContext, useMemo } from 'react'
+import { EducationalPathContext, EducationalPathContextType } from '../educationalPathContext'
 
 interface LearningProgressionsProps {}
 
 const LearningProgressions = ({}: LearningProgressionsProps) => {
   const classes = useStyles()
+  const educationalPathContext: EducationalPathContextType | undefined = useContext(EducationalPathContext)
 
-  const [data] = useState<EducationalPathDataObject>(
-    JSON.parse(JSON.stringify(dataMockup)).data
-  )
+  const data = educationalPathContext?.data as EducationalPathDataObject
+  const { missions, remaining_duration, duration } = data
+  const { actual_completed_units, expected_completed_units, total_units, total_cups, earned_cups } = missions
 
   const message = useMemo(() => {
-    const { actual_completed_units, expected_completed_units } = data.missions
     if (actual_completed_units > expected_completed_units) {
       return 'Bạn đang học nhanh hơn kế hoạch'
     } else if (actual_completed_units < expected_completed_units) {
@@ -34,59 +34,35 @@ const LearningProgressions = ({}: LearningProgressionsProps) => {
         <Box className={classes.option}>
           <Box className={classes.label}>Số ngày còn lại</Box>
           <Box className={classes.value}>
-            {data.remaining_duration}/{data.duration} ngày
+            {remaining_duration}/{duration} ngày
           </Box>
         </Box>
         <Box className={classes.option}>
           <Box className={classes.label}>Số cúp đã đạt</Box>
-          <CommonCup
-            className={classes.value}
-            totalCups={data.missions.total_cups}
-            numberOfCupsWon={data.missions.earned_cups}
-          />
+          <CommonCup className={classes.value} totalCups={total_cups} numberOfCupsWon={earned_cups} />
         </Box>
         <Box className={classes.boxUnitStatistics}>
           <Box className={classes.label}>Số Unit đạt 02 cup / Tổng số Unit</Box>
           <Box className={classes.lineProgressBar}>
             <Box
               className={clsx(classes.lineValue, classes.lineActualProgress)}
-              sx={{
-                width: `${
-                  (data.missions.actual_completed_units /
-                    data.missions.total_units) *
-                  100
-                }%`,
-              }}
+              sx={{ width: `${(actual_completed_units / total_units) * 100}%` }}
             />
             <Box
               className={clsx(classes.lineValue, classes.lineExpectedProgress)}
-              sx={{
-                width: `${
-                  (data.missions.expected_completed_units /
-                    data.missions.total_units) *
-                  100
-                }%`,
-              }}
+              sx={{ width: `${(expected_completed_units / total_units) * 100}%` }}
             />
           </Box>
           <Box className={classes.boxDotValue}>
-            <Box
-              className={classes.dot}
-              sx={{ backgroundColor: themeColors.color.green.primary }}
-            />
+            <Box className={classes.dot} sx={{ backgroundColor: themeColors.color.green.primary }} />
             <Box className={classes.value}>
-              Thực tế: {data.missions.actual_completed_units}/
-              {data.missions.total_units}
+              Thực tế: {actual_completed_units}/{total_units}
             </Box>
           </Box>
           <Box className={classes.boxDotValue}>
-            <Box
-              className={classes.dot}
-              sx={{ backgroundColor: themeColors.color.blue.primary }}
-            />
+            <Box className={classes.dot} sx={{ backgroundColor: themeColors.color.blue.primary }} />
             <Box className={classes.value}>
-              Kế hoạch: {data.missions.expected_completed_units}/
-              {data.missions.total_units}
+              Kế hoạch: {expected_completed_units}/{total_units}
             </Box>
           </Box>
           <Box className={classes.value}>{message}</Box>

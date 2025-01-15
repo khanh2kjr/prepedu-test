@@ -9,15 +9,11 @@ interface UnitTaskListProps {
 
 const UnitTaskList = ({ unitTaskList, unitTaskColor }: UnitTaskListProps) => {
   const classes = useStyles({ unitTaskColor })
-
   return (
     <Box className={classes.RootUnitTaskList}>
       {unitTaskList.map(unitItem => (
         <Box className={classes.unitItem} key={unitItem.unit_id}>
-          <Box
-            className={classes.hexagon}
-            sx={{ backgroundColor: unitTaskColor }}
-          />
+          <Box className={classes.hexagon} sx={{ backgroundColor: unitTaskColor }} />
           <Box className={classes.unitTaskName} title={unitItem.unit_title}>
             {unitItem.unit_title}
           </Box>

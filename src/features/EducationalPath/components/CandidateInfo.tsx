@@ -4,7 +4,6 @@ import { makeStyles } from '@mui/styles'
 
 const CandidateInfo = () => {
   const classes = useStyles()
-
   return (
     <Box className={classes.RootCandidateInfo}>
       <Box className={classes.candidateName}>Nguyễn Văn Khánh</Box>

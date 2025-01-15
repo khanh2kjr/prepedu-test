@@ -1,9 +1,11 @@
 import { Box, Theme } from '@mui/material'
 import { makeStyles } from '@mui/styles'
+
 interface CommonButtonProps {
   children: string
   onClick: () => void
 }
+
 const CommonButton = ({ children, onClick }: CommonButtonProps) => {
   const classes = useStyles()
   return (
@@ -12,6 +14,7 @@ const CommonButton = ({ children, onClick }: CommonButtonProps) => {
     </Box>
   )
 }
+
 const useStyles = makeStyles((theme: Theme) => ({
   RootCommonButton: {
     borderRadius: theme.spacing(1.5),
@@ -30,4 +33,5 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontWeight: 600,
   },
 }))
+
 export default CommonButton

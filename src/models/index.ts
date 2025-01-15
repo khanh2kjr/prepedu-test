@@ -12,8 +12,8 @@ export interface UnitItem {
 }
 
 export interface SessionItem {
-  completion_date: string | null // yyyy-mm-dd
-  date: string | null // yyyy-mm-dd
+  completion_date: string | null
+  date: string | null
   completed: boolean
   is_scheduled: boolean
   overall_index: number

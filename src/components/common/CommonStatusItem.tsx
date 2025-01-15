@@ -12,7 +12,6 @@ interface CommonStatusItemProps {
 
 const CommonStatusItem = ({ label, endIcon, color }: CommonStatusItemProps) => {
   const classes = useStyles()
-
   return (
     <Box className={clsx(classes.RootCommonStatusItem, color && color)}>
       <Box className={classes.label}>{label}</Box>

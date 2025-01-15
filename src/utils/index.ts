@@ -4,9 +4,7 @@ export const categorizeSessionsByMonth = (sessions: SessionItem[]) => {
   type Result = {
     [month: string]: SessionItem[]
   }
-
   const result: Result = {}
-
   sessions.forEach((session, index) => {
     let monthKey: string = ''
     if (session.date) {
@@ -27,14 +25,11 @@ export const categorizeSessionsByMonth = (sessions: SessionItem[]) => {
         }
       }
     }
-
     if (!result[monthKey]) {
       result[monthKey] = []
     }
-
     result[monthKey].push(session)
   })
-
   return result
 }
 
@@ -47,41 +42,14 @@ export const categorizeSessionsByMonth = (sessions: SessionItem[]) => {
  */
 export const formatDateToVietnamese = (dateString: string | null): string => {
   if (!dateString) return 'Invalid Date'
-
-  const daysOfWeek: string[] = [
-    'Chủ Nhật',
-    'Thứ Hai',
-    'Thứ Ba',
-    'Thứ Tư',
-    'Thứ Năm',
-    'Thứ Sáu',
-    'Thứ Bảy',
-  ]
-
-  const months: string[] = [
-    '01',
-    '02',
-    '03',
-    '04',
-    '05',
-    '06',
-    '07',
-    '08',
-    '09',
-    '10',
-    '11',
-    '12',
-  ]
-
+  const daysOfWeek: string[] = ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy']
+  const months: string[] = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
   const date: Date = new Date(dateString.trim())
-
   if (isNaN(date.getTime())) {
     return 'Invalid Date'
   }
-
   const dayOfWeek: string = daysOfWeek[date.getDay()]
   const day: number = date.getDate()
   const month: string = months[date.getMonth()]
-
   return `${dayOfWeek}, ${day} thg ${month}`
 }

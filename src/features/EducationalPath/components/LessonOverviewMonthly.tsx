@@ -12,9 +12,9 @@ interface LessionOverviewMonthlyProps {
 const LessionOverviewMonthly = ({ sessions }: LessionOverviewMonthlyProps) => {
   const classes = useStyles()
 
-  const scrollToTodaysLesson = () => {}
-
   const sessionMonthly = categorizeSessionsByMonth(sessions)
+
+  const scrollToTodaysLesson = () => {}
 
   return (
     <Box className={classes.RootLessionOverviewMonthly}>
@@ -24,11 +24,7 @@ const LessionOverviewMonthly = ({ sessions }: LessionOverviewMonthlyProps) => {
       </Box>
       <Box className={classes.body}>
         {Object.keys(sessionMonthly).map(monthKey => (
-          <ListLessonMonthlyItem
-            key={monthKey}
-            yearMonthString={monthKey}
-            listOfLessons={sessionMonthly[monthKey]}
-          />
+          <ListLessonMonthlyItem key={monthKey} yearMonthString={monthKey} listOfLessons={sessionMonthly[monthKey]} />
         ))}
       </Box>
     </Box>

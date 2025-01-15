@@ -7,24 +7,26 @@ import { useState } from 'react'
 import CandidateInfo from './components/CandidateInfo'
 import LearningProgressions from './components/LearningProgressions'
 import LessionOverviewMonthly from './components/LessonOverviewMonthly'
+import { EducationalPathContext } from './educationalPathContext'
 
 const EducationPath = () => {
   const classes = useStyles()
 
-  const [data] = useState<EducationalPathDataObject>(
-    JSON.parse(JSON.stringify(dataMockup)).data
-  )
+  const [data] = useState<EducationalPathDataObject>(JSON.parse(JSON.stringify(dataMockup)).data)
+  const title = `Chặng ${data.level_name}`
 
   return (
-    <CommonScreenLayout title={`Chặng ${data.level_name}`}>
-      <Box className={classes.RootEducationPath}>
-        <LessionOverviewMonthly sessions={data.sessions} />
-        <Box className={classes.rightContent}>
-          <LearningProgressions />
-          <CandidateInfo />
+    <EducationalPathContext.Provider value={{ data }}>
+      <CommonScreenLayout title={title}>
+        <Box className={classes.RootEducationPath}>
+          <LessionOverviewMonthly sessions={data.sessions} />
+          <Box className={classes.rightContent}>
+            <LearningProgressions />
+            <CandidateInfo />
+          </Box>
         </Box>
-      </Box>
-    </CommonScreenLayout>
+      </CommonScreenLayout>
+    </EducationalPathContext.Provider>
   )
 }
 

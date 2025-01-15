@@ -4,7 +4,6 @@ import { makeStyles } from '@mui/styles'
 
 const MainContainer = () => {
   const classes = useStyles()
-
   return (
     <Box className={classes.RootMainContainer}>
       <Box className={classes.containerCenter}>

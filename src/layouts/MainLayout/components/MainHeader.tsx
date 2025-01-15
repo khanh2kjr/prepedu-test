@@ -6,7 +6,6 @@ import { makeStyles } from '@mui/styles'
 
 const MainHeader = () => {
   const classes = useStyles()
-
   return (
     <Box className={classes.RootMainHeader}>
       <Box className={classes.headerContainer}>

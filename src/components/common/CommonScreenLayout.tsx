@@ -9,7 +9,6 @@ interface CommonScreenLayoutProps {
 
 const CommonScreenLayout = ({ title, children }: CommonScreenLayoutProps) => {
   const classes = useStyles()
-
   return (
     <Box className={classes.RootCommonScreenLayout}>
       <Box className={classes.title}>{title}</Box>
