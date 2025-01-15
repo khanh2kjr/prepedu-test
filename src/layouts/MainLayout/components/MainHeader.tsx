@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   boxLogin: {
-    '& img': {
+    '& svg': {
       width: 40,
       cursor: 'pointer',
     },
