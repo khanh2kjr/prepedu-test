@@ -116,9 +116,11 @@ const LessonItem = ({ lessonItem }: LessonItemProps) => {
         <CommonCup totalCups={lessonItem.total_proficiency} numberOfCupsWon={lessonItem.proficiency} />
       </Box>
       <UnitTaskList unitTaskList={unitTaskList} unitTaskColor={lessonStyles.unitTaskColor} />
-      <Box className={classes.messageStatus} sx={{ color: themeColors.color[lessonStyles.statusColorType].primary }}>
-        {messageStatus}
-      </Box>
+      {!!messageStatus && (
+        <Box className={classes.messageStatus} sx={{ color: themeColors.color[lessonStyles.statusColorType].primary }}>
+          <Box component="span">{messageStatus}</Box>
+        </Box>
+      )}
     </Box>
   )
 }
@@ -130,9 +132,17 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderRadius: theme.spacing(2),
     padding: theme.spacing(1.5),
     cursor: 'pointer',
+    display: 'flex',
+    flexDirection: 'column',
     '&:hover': {
       filter: 'brightness(0.98)',
       transition: 'all .2s',
+    },
+    [theme.breakpoints.down('xl')]: {
+      width: 'calc((100% - 8px) / 2)',
+    },
+    [theme.breakpoints.down('md')]: {
+      width: '100%',
     },
   },
   header: {
@@ -141,20 +151,33 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: 'space-between',
     gap: theme.spacing(1),
     marginBottom: theme.spacing(1),
+    [theme.breakpoints.down(360)]: {
+      alignItems: 'flex-start',
+    },
   },
   boxStatusDate: {
     display: 'flex',
     alignItems: 'center',
     gap: theme.spacing(1),
+    [theme.breakpoints.down(360)]: {
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+    },
   },
   date: {
     fontWeight: 700,
     fontSize: 14,
     lineHeight: '20px',
+    [theme.breakpoints.down('md')]: {
+      fontSize: 13,
+    },
   },
   messageStatus: {
     marginTop: theme.spacing(1),
     fontSize: 12,
+    flex: 1,
+    display: 'flex',
+    alignItems: 'flex-end',
   },
 }))
 

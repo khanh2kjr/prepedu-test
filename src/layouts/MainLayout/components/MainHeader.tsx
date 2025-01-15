@@ -35,12 +35,26 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: 'space-between',
     gap: theme.spacing(1),
     margin: '0 auto',
+    [theme.breakpoints.down(688)]: {
+      padding: theme.spacing(0, 2),
+    },
   },
   boxMenuAndLogo: {
     display: 'flex',
     gap: theme.spacing(6),
+    [theme.breakpoints.down('md')]: {
+      gap: theme.spacing(4),
+    },
+    [theme.breakpoints.down(688)]: {
+      gap: theme.spacing(1),
+    },
     '& svg': {
       cursor: 'pointer',
+    },
+    '& svg:last-child': {
+      [theme.breakpoints.down(688)]: {
+        transform: 'scale(0.8)',
+      },
     },
   },
   boxLogin: {

@@ -34,12 +34,21 @@ const useStyles = makeStyles((theme: Theme) => ({
   RootEducationPath: {
     display: 'flex',
     gap: theme.spacing(2),
+    [theme.breakpoints.down(688)]: {
+      flexDirection: 'column-reverse',
+    },
   },
   rightContent: {
     width: 296,
     display: 'flex',
     flexDirection: 'column',
     gap: theme.spacing(1.5),
+    [theme.breakpoints.down('lg')]: {
+      width: 260,
+    },
+    [theme.breakpoints.down(688)]: {
+      width: '100%',
+    },
   },
 }))
 

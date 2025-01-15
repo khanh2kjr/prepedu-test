@@ -83,6 +83,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     lineHeight: '28px',
     fontWeight: 700,
     marginBottom: theme.spacing(1.5),
+    [theme.breakpoints.down(688)]: {
+      fontSize: 18,
+    },
+    [theme.breakpoints.down(360)]: {
+      fontSize: 16,
+    },
   },
   body: {
     display: 'flex',
@@ -101,10 +107,16 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontSize: 14,
     lineHeight: '20px',
     fontWeight: 600,
+    [theme.breakpoints.down(360)]: {
+      fontSize: 13,
+    },
   },
   value: {
     fontSize: 14,
     color: theme.color.gray.primary,
+    [theme.breakpoints.down(360)]: {
+      fontSize: 13,
+    },
   },
   boxUnitStatistics: {
     display: 'flex',
@@ -126,6 +138,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderRadius: theme.spacing(2.5),
     backgroundColor: theme.color.neutral.primary,
     position: 'relative',
+    [theme.breakpoints.down(360)]: {
+      height: 14,
+    },
   },
   lineActualProgress: {
     backgroundColor: theme.color.green.primary,

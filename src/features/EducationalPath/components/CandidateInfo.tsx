@@ -21,6 +21,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     gap: theme.spacing(2.5),
     '& img': {
       width: 236,
+      [theme.breakpoints.down(688)]: {
+        width: 100,
+      },
+      [theme.breakpoints.down(360)]: {
+        width: 80,
+      },
     },
   },
   candidateName: {
@@ -32,6 +38,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     textAlign: 'center',
     padding: theme.spacing(2),
     lineHeight: '24px',
+    [theme.breakpoints.down(360)]: {
+      fontSize: 14,
+      padding: theme.spacing(1),
+    },
   },
   boxChit: {
     display: 'flex',

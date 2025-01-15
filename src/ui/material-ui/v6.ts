@@ -34,6 +34,15 @@ export const themeColors = {
 
 const themeOptions: ThemeOptionsOld = {
   ...themeColors,
+  breakpoints: {
+    values: {
+      xs: 600,
+      sm: 768,
+      md: 1000,
+      lg: 1024,
+      xl: 1360,
+    },
+  },
   palette: {
     primary: {
       main: themeColors.color.blue.primary,

@@ -29,6 +29,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontSize: 16,
     color: theme.color.gray.primary,
     fontWeight: 500,
+    [theme.breakpoints.down('md')]: {
+      fontSize: 14,
+    },
   },
 }))
 

@@ -25,6 +25,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     lineHeight: '32px',
     fontSize: 24,
     fontWeight: 700,
+    [theme.breakpoints.down('md')]: {
+      fontSize: 20,
+    },
+    [theme.breakpoints.down(688)]: {
+      fontSize: 18,
+    },
   },
 }))
 

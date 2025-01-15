@@ -36,20 +36,36 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: 'calc(100% - 296px - 16px)',
     backgroundColor: '#FFF',
     borderRadius: theme.spacing(2),
+    [theme.breakpoints.down('lg')]: {
+      width: 'calc(100% - 260px - 16px)',
+    },
+    [theme.breakpoints.down(688)]: {
+      width: '100%',
+    },
   },
   header: {
     padding: theme.spacing(2),
     display: 'flex',
     alignItems: 'center',
     gap: theme.spacing(1.5),
+    flexWrap: 'wrap',
   },
   title: {
     fontSize: 20,
     fontWeight: 700,
+    [theme.breakpoints.down(688)]: {
+      fontSize: 18,
+    },
+    [theme.breakpoints.down(360)]: {
+      fontSize: 14,
+    },
   },
   body: {
     borderTop: `1px solid ${theme.color.gray.fourth}`,
     padding: theme.spacing(2),
+    display: 'flex',
+    flexDirection: 'column',
+    gap: theme.spacing(4),
   },
 }))
 

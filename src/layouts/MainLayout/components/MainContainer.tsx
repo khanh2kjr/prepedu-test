@@ -24,6 +24,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     maxWidth: 1376,
     padding: theme.spacing(2.5, 4),
     margin: '0 auto',
+    [theme.breakpoints.down(688)]: {
+      padding: theme.spacing(1, 2),
+    },
+    [theme.breakpoints.down(360)]: {
+      padding: theme.spacing(1),
+    },
   },
 }))
 

@@ -25,7 +25,8 @@ const UnitTaskList = ({ unitTaskList, unitTaskColor }: UnitTaskListProps) => {
 
 const useStyles = makeStyles((theme: Theme) => ({
   RootUnitTaskList: {
-    height: 'calc(100% - 58px)',
+    // height: 'calc(100% - 58px)',
+    overflowY: 'auto',
   },
   unitItem: {
     padding: theme.spacing(0.5, 1),

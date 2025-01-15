@@ -49,6 +49,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontWeight: 700,
     fontSize: 16,
     color: theme.color.gray.primary,
+    [theme.breakpoints.down(360)]: {
+      fontSize: 14,
+    },
   },
   listOfLessons: {
     display: 'flex',
