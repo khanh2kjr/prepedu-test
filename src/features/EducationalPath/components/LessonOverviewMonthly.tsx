@@ -1,19 +1,15 @@
 import CommonButton from '@/components/common/CommonButton'
-import { SessionItem, UnitItem } from '@/models'
+import { SessionItem } from '@/models'
 import { categorizeSessionsByMonth } from '@/utils'
 import { Box, Theme } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import ListLessonMonthlyItem from './ListLessionMonthlyItem'
 
 interface LessionOverviewMonthlyProps {
-  units: UnitItem[]
   sessions: SessionItem[]
 }
 
-const LessionOverviewMonthly = ({
-  units,
-  sessions,
-}: LessionOverviewMonthlyProps) => {
+const LessionOverviewMonthly = ({ sessions }: LessionOverviewMonthlyProps) => {
   const classes = useStyles()
 
   const scrollToTodaysLesson = () => {}

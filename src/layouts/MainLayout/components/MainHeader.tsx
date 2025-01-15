@@ -1,8 +1,8 @@
+import CompanyIcon from '@/components/icons/CompanyIcon'
+import MenuIcon from '@/components/icons/MenuIcon'
+import PersonIcon from '@/components/icons/PersonIcon'
 import { Box, Theme } from '@mui/material'
 import { makeStyles } from '@mui/styles'
-import MenuIcon from '@/components/icons/MenuIcon'
-import CompanyIcon from '@/components/icons/CompanyIcon'
-import logoPersonLogin from '@/ui/images/logo-person-login.webp'
 
 const MainHeader = () => {
   const classes = useStyles()
@@ -15,7 +15,7 @@ const MainHeader = () => {
           <CompanyIcon />
         </Box>
         <Box className={classes.boxLogin}>
-          <img src={logoPersonLogin} alt="Logo-login" />
+          <PersonIcon />
         </Box>
       </Box>
     </Box>

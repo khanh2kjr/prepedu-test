@@ -31,3 +31,5 @@ export interface EducationalPathDataObject {
   units: UnitItem[]
   sessions: SessionItem[]
 }
+
+export type StatusItemColor = 'green' | 'orange' | 'blue' | 'gray'

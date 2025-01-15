@@ -1,9 +1,10 @@
 import { SessionItem } from '@/models'
 import { Box, Theme } from '@mui/material'
 import { makeStyles } from '@mui/styles'
+import LessonItem from './LessonItem'
 
 interface ListLessonMonthlyItemProps {
-  yearMonthString: string // YYYY-MM
+  yearMonthString: string
   listOfLessons: SessionItem[]
 }
 
@@ -27,6 +28,11 @@ const ListLessonMonthlyItem = ({
         </Box>
         <Box className={classes.line} />
       </Box>
+      <Box className={classes.listOfLessons}>
+        {listOfLessons.map(lessonItem => (
+          <LessonItem key={lessonItem.overall_index} lessonItem={lessonItem} />
+        ))}
+      </Box>
     </Box>
   )
 }
@@ -48,6 +54,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontWeight: 700,
     fontSize: 16,
     color: theme.color.gray.primary,
+  },
+  listOfLessons: {
+    display: 'flex',
+    gap: theme.spacing(1),
+    flexWrap: 'wrap',
   },
 }))
 

@@ -16,7 +16,7 @@ const EducationPath = () => {
   return (
     <CommonScreenLayout title={`Chặng ${data.level_name}`}>
       <Box className={classes.RootEducationPath}>
-        <LessionOverviewMonthly units={data.units} sessions={data.sessions} />
+        <LessionOverviewMonthly sessions={data.sessions} />
         <Box>Right</Box>
       </Box>
     </CommonScreenLayout>
