@@ -26,6 +26,9 @@ export const themeColors = {
     black: {
       primary: '#23242D',
     },
+    neutral: {
+      primary: '#F5F6FA',
+    },
   },
 } as const
 

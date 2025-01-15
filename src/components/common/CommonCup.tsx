@@ -1,17 +1,23 @@
 import { Box, Theme } from '@mui/material'
 import { makeStyles } from '@mui/styles'
+import clsx from 'clsx'
 import CupIcon from '../icons/CupIcon'
 
 interface CommonCupProps {
   totalCups: number
   numberOfCupsWon: number
+  className?: string
 }
 
-const CommonCup = ({ totalCups, numberOfCupsWon }: CommonCupProps) => {
+const CommonCup = ({
+  totalCups,
+  numberOfCupsWon,
+  className,
+}: CommonCupProps) => {
   const classes = useStyles()
 
   return (
-    <Box className={classes.RootCommonCup}>
+    <Box className={clsx(classes.RootCommonCup, className && className)}>
       <CupIcon />
       <Box>
         {numberOfCupsWon}/{totalCups}
