@@ -4,7 +4,6 @@ import MainLayout from '@/layouts/MainLayout'
 
 const App = () => {
   const classes = useStyles()
-
   return (
     <Box className={classes.RootApp}>
       <MainLayout />
