@@ -211,6 +211,22 @@
       {
         "unit_id": 4756,
         "unit_title": "Đề thi 10"
+      },
+      {
+        "unit_id": 6000,
+        "unit_title": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+      },
+      {
+        "unit_id": 6001,
+        "unit_title": "This code is a react anti-pattern for two reasons: 1. this useEffect will add"
+      },
+      {
+        "unit_id": 6002,
+        "unit_title": "const Header = () => { const [4, 5] = useState()"
+      },
+      {
+        "unit_id": 6003,
+        "unit_title": "11111111111111111111111111111111111111111111111111111111111111111"
       }
     ],
     "sessions": [
@@ -219,7 +235,7 @@
         "date": null,
         "is_scheduled": false,
         "overall_index": 1,
-        "unit_ids": [4265],
+        "unit_ids": [4265, 6000, 6001, 6002, 6003],
         "proficiency": 3,
         "total_proficiency": 3,
         "completed": true
