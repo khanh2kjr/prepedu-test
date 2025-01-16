@@ -17,9 +17,10 @@
     "jsx": "react-jsx",
     "types": ["node", "vite/client"],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "rollup/parseAst": ["./node_modules/rollup/dist/parseAst"]
     }
   },
   "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "extends": ["./tsconfig.app.json", "./tsconfig.node.json"]
 }

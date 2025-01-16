@@ -1,7 +1,7 @@
-import { createRoot } from 'react-dom/client'
 import { ThemeProvider } from '@mui/material'
-import { theme } from './ui/material-ui/v6.ts'
-import App from './App.tsx'
+import { createRoot } from 'react-dom/client'
+import App from './App'
+import { theme } from './ui/material-ui/v6'
 
 import './ui/styles'
 
