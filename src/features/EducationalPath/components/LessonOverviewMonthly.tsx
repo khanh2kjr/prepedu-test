@@ -1,6 +1,6 @@
 import CommonButton from '@/components/common/CommonButton'
 import { SessionItem } from '@/models'
-import { categorizeSessionsByMonth } from '@/utils'
+import { categorizeSessionsByMonth, getLessonElementIdInfo } from '@/utils'
 import { Box, Theme } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import ListLessonMonthlyItem from './ListLessionMonthlyItem'
@@ -14,7 +14,17 @@ const LessionOverviewMonthly = ({ sessions }: LessionOverviewMonthlyProps) => {
 
   const sessionMonthly = categorizeSessionsByMonth(sessions)
 
-  const scrollToTodaysLesson = () => {}
+  const scrollToTodaysLesson = () => {
+    const elementTargetId = getLessonElementIdInfo(new Date()).id
+    const elementTarget = document.getElementById(elementTargetId)
+    if (elementTarget) {
+      const rootMainContainerEl = document.getElementById('RootMainContainer') as HTMLDivElement
+      rootMainContainerEl.scrollTo({
+        top: elementTarget.offsetTop - 192,
+        behavior: 'smooth',
+      })
+    }
+  }
 
   return (
     <Box className={classes.RootLessionOverviewMonthly}>
@@ -44,11 +54,17 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   header: {
-    padding: theme.spacing(2),
+    padding: '15.5px 16px',
     display: 'flex',
     alignItems: 'center',
     gap: theme.spacing(1.5),
     flexWrap: 'wrap',
+    position: 'sticky',
+    top: 0,
+    background: '#FFF',
+    zIndex: 2,
+    borderBottom: `1px solid ${theme.color.gray.fourth}`,
+    borderRadius: theme.spacing(2, 2, 0, 0),
   },
   title: {
     fontSize: 20,
@@ -61,8 +77,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   body: {
-    borderTop: `1px solid ${theme.color.gray.fourth}`,
-    padding: theme.spacing(2),
+    padding: theme.spacing(0, 2, 2, 2),
     display: 'flex',
     flexDirection: 'column',
     gap: theme.spacing(4),

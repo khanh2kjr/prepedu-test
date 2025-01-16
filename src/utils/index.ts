@@ -5,21 +5,22 @@ export const categorizeSessionsByMonth = (sessions: SessionItem[]) => {
     [month: string]: SessionItem[]
   }
   const result: Result = {}
-  sessions.forEach((session, index) => {
+  const _sessions = structuredClone(sessions).sort((pre, next) => pre.overall_index - next.overall_index)
+  _sessions.forEach((session, index) => {
     let monthKey: string = ''
     if (session.date) {
       monthKey = session.date.slice(0, 7)
     } else {
       for (let i = index - 1; i >= 0; i--) {
-        if (sessions[i].date) {
-          monthKey = sessions[i].date?.slice(0, 7) || ''
+        if (_sessions[i].date) {
+          monthKey = _sessions[i].date?.slice(0, 7) || ''
           break
         }
       }
       if (!monthKey) {
-        for (let i = index + 1; i < sessions.length; i++) {
-          if (sessions[i].date) {
-            monthKey = sessions[i].date?.slice(0, 7) || ''
+        for (let i = index + 1; i < _sessions.length; i++) {
+          if (_sessions[i].date) {
+            monthKey = _sessions[i].date?.slice(0, 7) || ''
             break
           }
         }
@@ -52,4 +53,21 @@ export const formatDateToVietnamese = (dateString: string | null): string => {
   const day: number = date.getDate()
   const month: string = months[date.getMonth()]
   return `${dayOfWeek}, ${day} thg ${month}`
+}
+
+export const getLessonElementIdInfo = (
+  dateInput: Date
+): {
+  id: string
+  dateString: string
+} => {
+  const date: Date = new Date(dateInput)
+  if (isNaN(date.getTime())) {
+    return {
+      id: '',
+      dateString: '',
+    }
+  }
+  const dateString = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+  return { id: `lesson_${dateString}`, dateString }
 }

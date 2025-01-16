@@ -38,7 +38,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     alignItems: 'center',
     gap: theme.spacing(2),
-    marginBottom: theme.spacing(1.5),
+    padding: theme.spacing(2, 0, 1.5, 0),
+    position: 'sticky',
+    top: theme.spacing(9),
+    backgroundColor: '#FFF',
+    zIndex: 1,
   },
   line: {
     height: 1,

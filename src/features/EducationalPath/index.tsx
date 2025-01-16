@@ -43,11 +43,17 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     flexDirection: 'column',
     gap: theme.spacing(1.5),
+    height: 'calc(100vh - 133px)',
+    position: 'sticky',
+    top: 0,
     [theme.breakpoints.down('lg')]: {
       width: 260,
     },
     [theme.breakpoints.down(688)]: {
       width: '100%',
+      height: 'unset',
+      position: 'unset',
+      top: 'unset',
     },
   },
 }))

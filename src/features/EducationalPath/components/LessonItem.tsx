@@ -5,7 +5,7 @@ import TaskDoneIcon from '@/components/icons/TaskDoneIcon'
 import WarningIcon from '@/components/icons/WarningIcon'
 import { EducationalPathDataObject, SessionItem, StatusItemColor } from '@/models'
 import { themeColors } from '@/ui/material-ui/v6'
-import { formatDateToVietnamese } from '@/utils'
+import { formatDateToVietnamese, getLessonElementIdInfo } from '@/utils'
 import { Box, Theme } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import { ReactElement, useContext, useMemo } from 'react'
@@ -98,6 +98,7 @@ const LessonItem = ({ lessonItem }: LessonItemProps) => {
 
   return (
     <Box
+      id={getLessonElementIdInfo(new Date(lessonItem.date || '')).id}
       className={classes.RootLessonItem}
       sx={{
         backgroundColor: lessonStyles.backgroundColor,

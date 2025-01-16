@@ -5,7 +5,7 @@ import { makeStyles } from '@mui/styles'
 const MainContainer = () => {
   const classes = useStyles()
   return (
-    <Box className={classes.RootMainContainer}>
+    <Box id="RootMainContainer" className={classes.RootMainContainer}>
       <Box className={classes.containerCenter}>
         <EducationPath />
         {/* Other Features */}
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   containerCenter: {
     maxWidth: 1376,
-    padding: theme.spacing(2.5, 4),
+    padding: theme.spacing(2.5, 4, 8, 4),
     margin: '0 auto',
     [theme.breakpoints.down(688)]: {
       padding: theme.spacing(1, 2),
