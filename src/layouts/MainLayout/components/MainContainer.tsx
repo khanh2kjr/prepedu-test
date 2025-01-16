@@ -25,10 +25,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     padding: theme.spacing(2.5, 4, 8, 4),
     margin: '0 auto',
     [theme.breakpoints.down(688)]: {
-      padding: theme.spacing(1, 2),
+      padding: theme.spacing(1, 2, 20, 2),
     },
     [theme.breakpoints.down(360)]: {
-      padding: theme.spacing(1),
+      padding: theme.spacing(1, 1, 20, 1),
     },
   },
 }))
